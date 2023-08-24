@@ -6,13 +6,13 @@ our [mobile application](https://github.com/desmos-labs/dpm).
 
 In order to run an instance of this APIs, you will need to provide the following environment variables:
 
-| Name                      | Description                                                      | Required | Default   |
-|---------------------------|------------------------------------------------------------------|----------|-----------| 
-| `SERVER_ADDRESS`          | Address where the server will be listening for connections       | No       | `0.0.0.0` |
-| `SERVER_PORT`             | Port where the server will be listening for connections          | No       | `3000`    |
-| `CAERUS_GRPC_ADDRESS`     | Address of Caerus instance to use                                | Yes      | -         |
-| `CAERUS_GRPC_IS_INSECURE` | Tells whether the connection to Caerus should be insecure or not | No       | `false`   |
-| `LOG_LEVEL`               | Log level to use                                                 | No       | `info`    |
+| Name                  | Description                                                              | Required | Default   |
+|-----------------------|--------------------------------------------------------------------------|----------|-----------| 
+| `SERVER_ADDRESS`      | Address where the server will be listening for connections               | No       | `0.0.0.0` |
+| `SERVER_PORT`         | Port where the server will be listening for connections                  | No       | `3000`    |
+| `CAERUS_GRPC_ADDRESS` | Address of Caerus instance to use                                        | Yes      | -         |
+| `CAERUS_API_KEY`      | API key used to authenticate your application inside the Caerus instance | Yes      | -         |
+| `LOG_LEVEL`           | Log level to use                                                         | No       | `info`    |
 
 ## Available endpoints
 
