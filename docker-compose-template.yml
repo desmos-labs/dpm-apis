@@ -18,6 +18,10 @@ services:
       # Address of the Caerus instance to use
       CAERUS_GRPC_ADDRESS: "https://grpc-caerus.mainnet.desmos.network:443"
 
+      # API key used to authenticate your application inside the Caerus server
+      # TODO: Update this with your own key
+      CAERUS_API_KEY: ""
+
       ########################################
       ### Logging
       ########################################
