@@ -1,0 +1,26 @@
+version: '3.6'
+services:
+
+  ## APIs Server
+  apis:
+    build: .
+    image: "desmoslabs/dpm-apis:latest"
+    container_name: "dpm-apis"
+    user: "${UID}:${GID}"
+    ports:
+      - "3000:3000"
+    environment:
+
+      ########################################
+      ### Caerus
+      ########################################
+
+      # Address of the Caerus instance to use
+      CAERUS_GRPC_ADDRESS: "https://grpc-caerus.mainnet.desmos.network:443"
+
+      ########################################
+      ### Logging
+      ########################################
+
+      # Log level of the whole application
+      LOG_LEVEL: "debug"
