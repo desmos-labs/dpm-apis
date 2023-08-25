@@ -77,3 +77,30 @@ Params:
 * the `amount` param represents the optional amount of tokens to send. If provided it must be a valid Cosmos coins
   amount encoded in the string format (i.e. `10udaric`)
 * the `chain_type` param represents the chain for which the link should be generated (either `testnet` or `mainnet`)
+
+#### Get configuration of a deep link
+This endpoint allows to get the configuration of a deep link that has been previously created.
+
+Endpoint
+
+```
+GET /deep-links/config?url=<url>
+```
+
+Params:
+* the `url` param represents the deep link URL to get the configuration of
+
+Example response body
+
+```json
+{
+  "url": "https://desmos.app.link/...",
+  "config": {
+    "data": {
+      "action": "send",
+      "amount": "10udaric",
+      "address": "desmos1..."
+    }
+  }
+}
+```

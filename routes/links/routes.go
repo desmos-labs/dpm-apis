@@ -23,6 +23,23 @@ func RegisterWithContext(ctx routes.Context) {
 
 // Register registers all the routes that allow to perform links-related operations
 func Register(router *gin.Engine, handler *Handler) {
+	router.
+		GET("/deep-links/config", func(context *gin.Context) {
+			deepLinkURL, exists := context.GetQuery("url")
+			if !exists {
+				utils.HandleError(context, utils.WrapErr(http.StatusBadRequest, "missing url param"))
+				return
+			}
+
+			res, err := handler.HandleGetLinkConfigRequest(deepLinkURL)
+			if err != nil {
+				utils.HandleError(context, err)
+				return
+			}
+
+			context.JSON(http.StatusOK, res)
+		})
+
 	router.Group("/deep-links/:address").
 		GET("", func(c *gin.Context) {
 			// Build the request

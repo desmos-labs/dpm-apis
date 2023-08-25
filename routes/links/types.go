@@ -3,6 +3,7 @@ package links
 import (
 	sdk "github.com/cosmos/cosmos-sdk/types"
 	caeruslinks "github.com/desmos-labs/caerus/routes/links"
+	caerustypes "github.com/desmos-labs/caerus/types"
 )
 
 type CreateAddressLinkRequest struct {
@@ -63,5 +64,29 @@ type CreateLinkResponse struct {
 func NewCreateLinkResponse(deepLink string) *CreateLinkResponse {
 	return &CreateLinkResponse{
 		DeepLink: deepLink,
+	}
+}
+
+// GetLinkConfigRequest represents the request sent to get the link configuration
+type GetLinkConfigRequest struct {
+	Url string
+}
+
+func NewGetLinkConfigRequest(url string) *GetLinkConfigRequest {
+	return &GetLinkConfigRequest{
+		Url: url,
+	}
+}
+
+// GetLinkConfigResponse represents the response returned when a link configuration is retrieved
+type GetLinkConfigResponse struct {
+	Url    string
+	Config *caerustypes.LinkConfig
+}
+
+func NewGetLinkConfigResponse(url string, config *caerustypes.LinkConfig) *GetLinkConfigResponse {
+	return &GetLinkConfigResponse{
+		Url:    url,
+		Config: config,
 	}
 }

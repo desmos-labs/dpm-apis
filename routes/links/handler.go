@@ -1,7 +1,11 @@
 package links
 
 import (
+	"net/http"
+
 	caeruslinks "github.com/desmos-labs/caerus/routes/links"
+
+	"github.com/desmos-labs/dpm-apis/utils"
 )
 
 type Handler struct {
@@ -52,4 +56,18 @@ func (h *Handler) HandleCreateSendLinkRequest(req *CreateSendLinkRequest) (*Crea
 	}
 
 	return NewCreateLinkResponse(res.Url), nil
+}
+
+// HandleGetLinkConfigRequest handles the given GetLinkConfigRequest returning the link config or an error
+func (h *Handler) HandleGetLinkConfigRequest(url string) (*GetLinkConfigResponse, error) {
+	res, err := h.caerus.GetLinkConfig(&caeruslinks.GetLinkConfigRequest{Url: url})
+	if err != nil {
+		return nil, err
+	}
+
+	if res == nil {
+		return nil, utils.WrapErr(http.StatusNotFound, "link not found")
+	}
+
+	return NewGetLinkConfigResponse(url, res), nil
 }

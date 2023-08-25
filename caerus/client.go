@@ -8,10 +8,13 @@ import (
 
 	caerusauth "github.com/desmos-labs/caerus/authentication"
 	caeruslinks "github.com/desmos-labs/caerus/routes/links"
+	caerustypes "github.com/desmos-labs/caerus/types"
 	"github.com/desmos-labs/caerus/utils"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/credentials/insecure"
+	"google.golang.org/grpc/status"
 )
 
 var (
@@ -68,27 +71,35 @@ func (client *Client) getAuthenticatedContext() context.Context {
 
 // --------------------------------------------------------------------------------------------------------------------
 
-// CreateAddressLink allows to generate a new deep link that allows to open
-// the given address on the given chain and perform the action decided by the
-// user
+// CreateAddressLink allows to generate a new deep link that allows to open the given address on the given
+// chain and perform the action decided by the user
 func (client *Client) CreateAddressLink(request *caeruslinks.CreateAddressLinkRequest) (*caeruslinks.CreateLinkResponse, error) {
 	return client.linksService.CreateAddressLink(client.getAuthenticatedContext(), request)
 }
 
-// CreateViewProfileLink allows to generate a new deep link that allows to
-// view the profile of the given user
+// CreateViewProfileLink allows to generate a new deep link that allows to view the profile of the given user
 func (client *Client) CreateViewProfileLink(request *caeruslinks.CreateViewProfileLinkRequest) (*caeruslinks.CreateLinkResponse, error) {
 	return client.linksService.CreateViewProfileLink(client.getAuthenticatedContext(), request)
 }
 
-// CreateSendLink allows to generate a new deep link that allows to send
-// tokens to the given address
+// CreateSendLink allows to generate a new deep link that allows to send tokens to the given address
 func (client *Client) CreateSendLink(request *caeruslinks.CreateSendLinkRequest) (*caeruslinks.CreateLinkResponse, error) {
 	return client.linksService.CreateSendLink(client.getAuthenticatedContext(), request)
 }
 
-// CreateLink allows to generated a new deep link based on the given
-// configuration
+// CreateLink allows to generated a new deep link based on the given configuration
 func (client *Client) CreateLink(request *caeruslinks.CreateLinkRequest) (*caeruslinks.CreateLinkResponse, error) {
 	return client.linksService.CreateLink(client.getAuthenticatedContext(), request)
+}
+
+// GetLinkConfig allows to get the configuration used to generate a link
+func (client *Client) GetLinkConfig(request *caeruslinks.GetLinkConfigRequest) (*caerustypes.LinkConfig, error) {
+	res, err := client.linksService.GetLinkConfig(context.Background(), request)
+	if err != nil {
+		if errStatus, ok := status.FromError(err); ok && errStatus.Code() == codes.NotFound {
+			return nil, nil
+		}
+		return nil, err
+	}
+	return res, nil
 }
