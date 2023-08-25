@@ -3,8 +3,8 @@ module github.com/desmos-labs/dpm-apis
 go 1.20
 
 require (
-	github.com/cosmos/cosmos-sdk v0.47.3
-	github.com/desmos-labs/caerus v0.0.0-20230824151515-2d765177328a
+	github.com/cosmos/cosmos-sdk v0.47.4
+	github.com/desmos-labs/caerus v0.0.0-20230825170629-5ee97a5d0b59
 	github.com/desmos-labs/desmos/v5 v5.2.0
 	github.com/gin-contrib/cors v1.4.0
 	github.com/gin-gonic/gin v1.9.1
@@ -26,7 +26,8 @@ require (
 	cosmossdk.io/api v0.3.1 // indirect
 	cosmossdk.io/core v0.5.1 // indirect
 	cosmossdk.io/depinject v1.0.0-alpha.3 // indirect
-	cosmossdk.io/errors v1.0.0-beta.7 // indirect
+	cosmossdk.io/errors v1.0.0 // indirect
+	cosmossdk.io/log v1.1.1-0.20230704160919-88f2c830b0ca // indirect
 	cosmossdk.io/math v1.0.1 // indirect
 	cosmossdk.io/simapp v0.0.0-20230224204036-a6adb0821462 // indirect
 	cosmossdk.io/tools/rosetta v0.2.1 // indirect
@@ -96,7 +97,7 @@ require (
 	github.com/decred/dcrd/dcrec/secp256k1/v4 v4.1.0 // indirect
 	github.com/denis-tingaikin/go-header v0.4.3 // indirect
 	github.com/desertbit/timer v0.0.0-20180107155436-c41aec40b27f // indirect
-	github.com/desmos-labs/cosmos-go-wallet v0.6.0 // indirect
+	github.com/desmos-labs/cosmos-go-wallet v0.7.0 // indirect
 	github.com/dgraph-io/badger/v2 v2.2007.4 // indirect
 	github.com/dgraph-io/ristretto v0.1.1 // indirect
 	github.com/dgryski/go-farm v0.0.0-20200201041132-a6ae2369ad13 // indirect
@@ -136,7 +137,7 @@ require (
 	github.com/godbus/dbus v0.0.0-20190726142602-4481cbc300e2 // indirect
 	github.com/gofrs/flock v0.8.1 // indirect
 	github.com/gogo/googleapis v1.4.1 // indirect
-	github.com/gogo/protobuf v1.3.3 // indirect
+	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang-jwt/jwt/v4 v4.5.0 // indirect
 	github.com/golang/glog v1.1.0 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
@@ -351,11 +352,9 @@ replace (
 	github.com/CosmWasm/wasmd => github.com/desmos-labs/wasmd v0.40.0-rc.1-desmos
 
 	// Our cosmos-sdk branch is: https://github.com/desmos-labs/cosmos-sdk v0.47.x-desmos
-	github.com/cosmos/cosmos-sdk => github.com/desmos-labs/cosmos-sdk v0.47.2-desmos
+	github.com/cosmos/cosmos-sdk => github.com/desmos-labs/cosmos-sdk v0.47.3-desmos
 
 	// This is done to avoid the following error:
 	// https://github.com/desmos-labs/desmos/pull/1131#discussion_r1194090419
 	github.com/cosmos/gogoproto => github.com/cosmos/gogoproto v1.4.8
-
-	github.com/gogo/protobuf => github.com/regen-network/protobuf v1.3.3-alpha.regen.1
 )
