@@ -80,13 +80,13 @@ func NewGetLinkConfigRequest(url string) *GetLinkConfigRequest {
 
 // GetLinkConfigResponse represents the response returned when a link configuration is retrieved
 type GetLinkConfigResponse struct {
-	Url    string
-	Config *caerustypes.LinkConfig
+	DeepLink string                  `json:"deep_link"`
+	Config   *caerustypes.LinkConfig `json:"config"`
 }
 
-func NewGetLinkConfigResponse(url string, config *caerustypes.LinkConfig) *GetLinkConfigResponse {
+func NewGetLinkConfigResponse(deepLink string, config *caerustypes.LinkConfig) *GetLinkConfigResponse {
 	return &GetLinkConfigResponse{
-		Url:    url,
-		Config: config,
+		DeepLink: deepLink,
+		Config:   config,
 	}
 }

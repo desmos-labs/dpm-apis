@@ -94,7 +94,7 @@ Example response body
 
 ```json
 {
-  "url": "https://desmos.app.link/...",
+  "deep_link": "https://desmos.app.link/...",
   "config": {
     "data": {
       "action": "send",
