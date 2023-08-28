@@ -14,7 +14,7 @@ import (
 	"github.com/desmos-labs/caerus/analytics"
 	"github.com/desmos-labs/caerus/runner"
 	"github.com/desmos-labs/caerus/utils"
-	"github.com/desmos-labs/desmos/v5/app"
+	"github.com/desmos-labs/desmos/v6/app"
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/rs/zerolog/log"
