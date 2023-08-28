@@ -36,15 +36,15 @@ func NewClient(apiKey string, caerusGrpcConn *grpc.ClientConn) *Client {
 }
 
 // NewClientFromEnvVariables returns a new Client instance from the environment variables
-func NewClientFromEnvVariables() (*Client, error) {
+func NewClientFromEnvVariables() *Client {
 	caerusGrpcAddress := utils.GetEnvOr(EnvCaerusGRPCAddress, "")
 	if caerusGrpcAddress == "" {
-		return nil, fmt.Errorf("missing %s", EnvCaerusGRPCAddress)
+		panic(fmt.Errorf("missing %s", EnvCaerusGRPCAddress))
 	}
 
 	apiKey := utils.GetEnvOr(EnvCaerusAPIKey, "")
 	if apiKey == "" {
-		return nil, fmt.Errorf("missing %s", EnvCaerusAPIKey)
+		panic(fmt.Errorf("missing %s", EnvCaerusAPIKey))
 	}
 
 	// Build the transport credentials based on the HTTP protocol specified inside the URL
@@ -59,10 +59,10 @@ func NewClientFromEnvVariables() (*Client, error) {
 	// Build the connection
 	grpcConn, err := grpc.Dial(caerusGrpcAddress, grpc.WithTransportCredentials(transportCredential))
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 
-	return NewClient(apiKey, grpcConn), nil
+	return NewClient(apiKey, grpcConn)
 }
 
 func (client *Client) getContext() context.Context {

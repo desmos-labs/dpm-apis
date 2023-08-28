@@ -29,11 +29,8 @@ func main() {
 	// Setup Cosmos-related stuff
 	app.SetupConfig(sdk.GetConfig())
 
-	// Build the Caerus client
-	caerusClient, err := caerus.NewClientFromEnvVariables()
-	if err != nil {
-		panic(err)
-	}
+	// Build the clients
+	caerusClient := caerus.NewClientFromEnvVariables()
 
 	// Setup the CORS
 	corsConfig := cors.DefaultConfig()
@@ -70,7 +67,7 @@ func main() {
 	// Start the HTTP server
 	// Block main process (signal capture will call WaitGroup's Done)
 	log.Info().Str("address", httpServer.Addr).Msg("Starting API server")
-	err = httpServer.ListenAndServe()
+	err := httpServer.ListenAndServe()
 	if err != nil && !errors.Is(err, http.ErrServerClosed) {
 		panic(err)
 	}
