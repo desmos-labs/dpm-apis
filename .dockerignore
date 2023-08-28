@@ -1,1 +1,8 @@
-build/
+.github
+build
+tools
+.codecov.yml
+.gitignore
+.golangci.yml
+.mergify.yml
+README.md
