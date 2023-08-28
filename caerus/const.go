@@ -4,4 +4,5 @@ package caerus
 const (
 	EnvCaerusGRPCAddress = "CAERUS_GRPC_ADDRESS"
 	EnvCaerusAPIKey      = "CAERUS_API_KEY"
+	EnvBranchKey         = "BRANCH_KEY"
 )

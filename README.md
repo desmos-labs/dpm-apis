@@ -12,6 +12,7 @@ In order to run an instance of this APIs, you will need to provide the following
 | `SERVER_PORT`         | Port where the server will be listening for connections                  | No       | `3000`    |
 | `CAERUS_GRPC_ADDRESS` | Address of Caerus instance to use                                        | Yes      | -         |
 | `CAERUS_API_KEY`      | API key used to authenticate your application inside the Caerus instance | Yes      | -         |
+| `BRANCH_KEY`          | Branch.io key used to create custom deep links                           | Yes      | -         |
 | `LOG_LEVEL`           | Log level to use                                                         | No       | `info`    |
 
 ## Available endpoints
@@ -88,6 +89,7 @@ GET /deep-links/config?url=<url>
 ```
 
 Params:
+
 * the `url` param represents the deep link URL to get the configuration of
 
 Example response body

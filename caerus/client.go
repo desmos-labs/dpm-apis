@@ -23,27 +23,34 @@ var (
 
 // Client represents a client that can be used to communicate with the Caerus server
 type Client struct {
-	apiKey       string
+	branchKey    string
+	caerusApiKey string
 	linksService caeruslinks.LinksServiceClient
 }
 
 // NewClient returns a new Client instance with the given gRPC connection
-func NewClient(apiKey string, caerusGrpcConn *grpc.ClientConn) *Client {
+func NewClient(branchKey string, caerusApiKey string, caerusGrpcConn *grpc.ClientConn) *Client {
 	return &Client{
-		apiKey:       apiKey,
+		branchKey:    branchKey,
+		caerusApiKey: caerusApiKey,
 		linksService: caeruslinks.NewLinksServiceClient(caerusGrpcConn),
 	}
 }
 
 // NewClientFromEnvVariables returns a new Client instance from the environment variables
 func NewClientFromEnvVariables() *Client {
+	branchApiKey := utils.GetEnvOr(EnvBranchKey, "")
+	if branchApiKey == "" {
+		panic(fmt.Errorf("missing %s", EnvBranchKey))
+	}
+
 	caerusGrpcAddress := utils.GetEnvOr(EnvCaerusGRPCAddress, "")
 	if caerusGrpcAddress == "" {
 		panic(fmt.Errorf("missing %s", EnvCaerusGRPCAddress))
 	}
 
-	apiKey := utils.GetEnvOr(EnvCaerusAPIKey, "")
-	if apiKey == "" {
+	caerusApiKey := utils.GetEnvOr(EnvCaerusAPIKey, "")
+	if caerusApiKey == "" {
 		panic(fmt.Errorf("missing %s", EnvCaerusAPIKey))
 	}
 
@@ -62,11 +69,11 @@ func NewClientFromEnvVariables() *Client {
 		panic(err)
 	}
 
-	return NewClient(apiKey, grpcConn)
+	return NewClient(branchApiKey, caerusApiKey, grpcConn)
 }
 
 func (client *Client) getContext() context.Context {
-	return caerusauth.SetupContextWithAuthorization(context.Background(), client.apiKey)
+	return caerusauth.SetupContextWithAuthorization(context.Background(), client.caerusApiKey)
 }
 
 // --------------------------------------------------------------------------------------------------------------------
@@ -91,7 +98,7 @@ func (client *Client) CreateSendLink(request *caeruslinks.CreateSendLinkRequest)
 func (client *Client) CreateLink(config *caerustypes.LinkConfig) (*caeruslinks.CreateLinkResponse, error) {
 	return client.linksService.CreateLink(client.getContext(), &caeruslinks.CreateLinkRequest{
 		LinkConfiguration: config,
-		ApiKey:            client.apiKey,
+		ApiKey:            client.branchKey,
 	})
 }
 

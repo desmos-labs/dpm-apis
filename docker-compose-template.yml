@@ -22,6 +22,10 @@ services:
       # TODO: Update this with your own key
       CAERUS_API_KEY: ""
 
+      # Branch.io key used to create custom deep links
+      # TODO: Update this with your own key
+      BRANCH_KEY: ""
+
       ########################################
       ### Logging
       ########################################
