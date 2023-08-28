@@ -60,7 +60,7 @@ func (h *Handler) HandleCreateSendLinkRequest(req *CreateSendLinkRequest) (*Crea
 
 // HandleGetLinkConfigRequest handles the given GetLinkConfigRequest returning the link config or an error
 func (h *Handler) HandleGetLinkConfigRequest(url string) (*GetLinkConfigResponse, error) {
-	res, err := h.caerus.GetLinkConfig(&caeruslinks.GetLinkConfigRequest{Url: url})
+	res, err := h.caerus.GetLinkConfig(url)
 	if err != nil {
 		return nil, err
 	}

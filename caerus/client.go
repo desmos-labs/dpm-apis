@@ -65,7 +65,7 @@ func NewClientFromEnvVariables() (*Client, error) {
 	return NewClient(apiKey, grpcConn), nil
 }
 
-func (client *Client) getAuthenticatedContext() context.Context {
+func (client *Client) getContext() context.Context {
 	return caerusauth.SetupContextWithAuthorization(context.Background(), client.apiKey)
 }
 
@@ -74,29 +74,32 @@ func (client *Client) getAuthenticatedContext() context.Context {
 // CreateAddressLink allows to generate a new deep link that allows to open the given address on the given
 // chain and perform the action decided by the user
 func (client *Client) CreateAddressLink(request *caeruslinks.CreateAddressLinkRequest) (*caeruslinks.CreateLinkResponse, error) {
-	return client.linksService.CreateAddressLink(client.getAuthenticatedContext(), request)
+	return client.linksService.CreateAddressLink(client.getContext(), request)
 }
 
 // CreateViewProfileLink allows to generate a new deep link that allows to view the profile of the given user
 func (client *Client) CreateViewProfileLink(request *caeruslinks.CreateViewProfileLinkRequest) (*caeruslinks.CreateLinkResponse, error) {
-	return client.linksService.CreateViewProfileLink(client.getAuthenticatedContext(), request)
+	return client.linksService.CreateViewProfileLink(client.getContext(), request)
 }
 
 // CreateSendLink allows to generate a new deep link that allows to send tokens to the given address
 func (client *Client) CreateSendLink(request *caeruslinks.CreateSendLinkRequest) (*caeruslinks.CreateLinkResponse, error) {
-	return client.linksService.CreateSendLink(client.getAuthenticatedContext(), request)
+	return client.linksService.CreateSendLink(client.getContext(), request)
 }
 
 // CreateLink allows to generated a new deep link based on the given configuration
-func (client *Client) CreateLink(request *caeruslinks.CreateLinkRequest) (*caeruslinks.CreateLinkResponse, error) {
-	return client.linksService.CreateLink(client.getAuthenticatedContext(), request)
+func (client *Client) CreateLink(config *caerustypes.LinkConfig) (*caeruslinks.CreateLinkResponse, error) {
+	return client.linksService.CreateLink(client.getContext(), &caeruslinks.CreateLinkRequest{
+		LinkConfiguration: config,
+		ApiKey:            client.apiKey,
+	})
 }
 
 // GetLinkConfig allows to get the configuration used to generate a link
-func (client *Client) GetLinkConfig(request *caeruslinks.GetLinkConfigRequest) (*caerustypes.LinkConfig, error) {
-	res, err := client.linksService.GetLinkConfig(context.Background(), request)
+func (client *Client) GetLinkConfig(url string) (*caerustypes.LinkConfig, error) {
+	res, err := client.linksService.GetLinkConfig(client.getContext(), &caeruslinks.GetLinkConfigRequest{Url: url})
 	if err != nil {
-		if errStatus, ok := status.FromError(err); ok && errStatus.Code() == codes.NotFound {
+		if status.Code(err) == codes.NotFound {
 			return nil, nil
 		}
 		return nil, err
