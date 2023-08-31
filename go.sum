@@ -488,8 +488,8 @@ github.com/desmos-labs/cosmos-go-wallet v0.7.0/go.mod h1:a/TgGD19Iuovcbl1erO7JCL
 github.com/desmos-labs/cosmos-sdk v0.47.4-desmos h1:+pknvZ4fy4tlmN2+pVfXcKP2dO2Co6w6D5FmY0jBbnw=
 github.com/desmos-labs/cosmos-sdk v0.47.4-desmos/go.mod h1:R5n+uM7vguVPFap4pgkdvQCT1nVo/OtPwrlAU40rvok=
 github.com/desmos-labs/desmos/v5 v5.2.0 h1:G0fxZ89KKtgzShDEomzWy8uWO1aryyHLg/nhGta1xzA=
-github.com/desmos-labs/desmos/v6 v6.0.0 h1:3H4NgXjxBGRNuj6U3YAjVDUwsgmmafxSHBvdMCvtY8s=
-github.com/desmos-labs/desmos/v6 v6.0.0/go.mod h1:kUer5XY6Xe72xFRuhJ4ykGAPUwrim0cOJ+orWgt2o0Y=
+github.com/desmos-labs/desmos/v6 v6.1.0 h1:HbyDfSsQQvN/6AQP1rI2rMufbprg9TFYxB0gHZtTVk8=
+github.com/desmos-labs/desmos/v6 v6.1.0/go.mod h1:kUer5XY6Xe72xFRuhJ4ykGAPUwrim0cOJ+orWgt2o0Y=
 github.com/dgraph-io/badger/v2 v2.2007.4 h1:TRWBQg8UrlUhaFdco01nO2uXwzKS7zd+HVdwV/GHc4o=
 github.com/dgraph-io/badger/v2 v2.2007.4/go.mod h1:vSw/ax2qojzbN6eXHIx6KPKtCSHJN/Uz0X0VPruTIhk=
 github.com/dgraph-io/ristretto v0.0.3-0.20200630154024-f66de99634de/go.mod h1:KPxhHT9ZxKefz+PCeOGsrHpl1qZ7i70dGTu2u+Ahh6E=
