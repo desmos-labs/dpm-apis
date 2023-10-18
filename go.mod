@@ -3,9 +3,9 @@ module github.com/desmos-labs/dpm-apis
 go 1.20
 
 require (
-	github.com/cosmos/cosmos-sdk v0.47.4
+	github.com/cosmos/cosmos-sdk v0.47.5
 	github.com/desmos-labs/caerus v0.0.0-20230825170629-5ee97a5d0b59
-	github.com/desmos-labs/desmos/v6 v6.1.1
+	github.com/desmos-labs/desmos/v6 v6.2.0
 	github.com/gin-contrib/cors v1.4.0
 	github.com/gin-gonic/gin v1.9.1
 	github.com/golangci/golangci-lint v1.54.2
@@ -27,7 +27,7 @@ require (
 	cosmossdk.io/core v0.5.1 // indirect
 	cosmossdk.io/depinject v1.0.0-alpha.4 // indirect
 	cosmossdk.io/errors v1.0.0 // indirect
-	cosmossdk.io/log v1.1.1-0.20230704160919-88f2c830b0ca // indirect
+	cosmossdk.io/log v1.2.1 // indirect
 	cosmossdk.io/math v1.1.2 // indirect
 	cosmossdk.io/simapp v0.0.0-20230323161446-0af178d721ff // indirect
 	cosmossdk.io/tools/rosetta v0.2.1 // indirect
@@ -41,8 +41,8 @@ require (
 	github.com/Antonboom/nilnil v0.1.7 // indirect
 	github.com/BurntSushi/toml v1.3.2 // indirect
 	github.com/ChainSafe/go-schnorrkel v0.0.0-20200405005733-88cbf1b4c40d // indirect
-	github.com/CosmWasm/wasmd v0.41.0 // indirect
-	github.com/CosmWasm/wasmvm v1.3.0 // indirect
+	github.com/CosmWasm/wasmd v0.43.0 // indirect
+	github.com/CosmWasm/wasmvm v1.4.1 // indirect
 	github.com/Djarvur/go-err113 v0.0.0-20210108212216-aea10b59be24 // indirect
 	github.com/GaijinEntertainment/go-exhaustruct/v3 v3.1.0 // indirect
 	github.com/Masterminds/semver v1.5.0 // indirect
@@ -88,8 +88,8 @@ require (
 	github.com/cosmos/go-bip39 v1.0.0 // indirect
 	github.com/cosmos/gogogateway v1.2.0 // indirect
 	github.com/cosmos/gogoproto v1.4.10 // indirect
-	github.com/cosmos/iavl v0.20.0 // indirect
-	github.com/cosmos/ibc-go/v7 v7.2.0 // indirect
+	github.com/cosmos/iavl v0.20.1 // indirect
+	github.com/cosmos/ibc-go/v7 v7.3.0 // indirect
 	github.com/cosmos/ics23/go v0.10.0 // indirect
 	github.com/cosmos/ledger-cosmos-go v0.12.2 // indirect
 	github.com/cosmos/rosetta-sdk-go v0.10.0 // indirect
@@ -118,7 +118,7 @@ require (
 	github.com/fsnotify/fsnotify v1.6.0 // indirect
 	github.com/fzipp/gocyclo v0.6.0 // indirect
 	github.com/gabriel-vasile/mimetype v1.4.2 // indirect
-	github.com/getsentry/sentry-go v0.21.0 // indirect
+	github.com/getsentry/sentry-go v0.23.0 // indirect
 	github.com/ghodss/yaml v1.0.0 // indirect
 	github.com/gin-contrib/sse v0.1.0 // indirect
 	github.com/go-co-op/gocron v1.31.0 // indirect
@@ -253,10 +253,10 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/polyfloyd/go-errorlint v1.4.4 // indirect
 	github.com/posthog/posthog-go v0.0.0-20230801140217-d607812dee69 // indirect
-	github.com/prometheus/client_golang v1.16.0 // indirect
-	github.com/prometheus/client_model v0.3.0 // indirect
-	github.com/prometheus/common v0.42.0 // indirect
-	github.com/prometheus/procfs v0.10.1 // indirect
+	github.com/prometheus/client_golang v1.17.0 // indirect
+	github.com/prometheus/client_model v0.4.1-0.20230718164431-9a2bf3000d16 // indirect
+	github.com/prometheus/common v0.44.0 // indirect
+	github.com/prometheus/procfs v0.11.1 // indirect
 	github.com/quasilyte/go-ruleguard v0.4.0 // indirect
 	github.com/quasilyte/gogrep v0.5.0 // indirect
 	github.com/quasilyte/regex/syntax v0.0.0-20210819130434-b3f0c404a727 // indirect
@@ -264,7 +264,7 @@ require (
 	github.com/rakyll/statik v0.1.7 // indirect
 	github.com/rcrowley/go-metrics v0.0.0-20201227073835-cf1acfcdf475 // indirect
 	github.com/robfig/cron/v3 v3.0.1 // indirect
-	github.com/rogpeppe/go-internal v1.10.0 // indirect
+	github.com/rogpeppe/go-internal v1.11.0 // indirect
 	github.com/rs/cors v1.8.3 // indirect
 	github.com/ryancurrah/gomodguard v1.3.0 // indirect
 	github.com/ryanrolds/sqlclosecheck v0.4.0 // indirect
@@ -322,7 +322,7 @@ require (
 	go.uber.org/zap v1.24.0 // indirect
 	golang.org/x/arch v0.4.0 // indirect
 	golang.org/x/crypto v0.12.0 // indirect
-	golang.org/x/exp v0.0.0-20230515195305-f3d0a9c9a5cc // indirect
+	golang.org/x/exp v0.0.0-20230711153332-06a737ee72cb // indirect
 	golang.org/x/exp/typeparams v0.0.0-20230307190834-24139beb5833 // indirect
 	golang.org/x/mod v0.12.0 // indirect
 	golang.org/x/net v0.14.0 // indirect
@@ -355,4 +355,4 @@ require (
 )
 
 // Our cosmos-sdk branch is: https://github.com/desmos-labs/cosmos-sdk v0.47.x-desmos
-replace github.com/cosmos/cosmos-sdk => github.com/desmos-labs/cosmos-sdk v0.47.4-desmos
+replace github.com/cosmos/cosmos-sdk => github.com/desmos-labs/cosmos-sdk v0.47.5-desmos
