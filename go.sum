@@ -493,8 +493,8 @@ github.com/desmos-labs/caerus v0.0.0-20230825170629-5ee97a5d0b59 h1:h9QYWrPrNQom
 github.com/desmos-labs/caerus v0.0.0-20230825170629-5ee97a5d0b59/go.mod h1:tfw7wyvXwp4Q5b5GOyMswI0Pt+DxDGCE6VBb031dgZY=
 github.com/desmos-labs/cosmos-go-wallet v0.7.0 h1:eby89IrpAjfIqVBxcMILx+kXN4usSYN4XutFFk8P7R0=
 github.com/desmos-labs/cosmos-go-wallet v0.7.0/go.mod h1:a/TgGD19Iuovcbl1erO7JCLi+LawNshXKgAVqpWAHn4=
-github.com/desmos-labs/cosmos-sdk v0.47.5-desmos h1:Ogg9qwwhoHaOWRNw8gMzsLjZig5D3jQ1xVqTYb09cc0=
-github.com/desmos-labs/cosmos-sdk v0.47.5-desmos/go.mod h1:EHwCeN9IXonsjKcjpS12MqeStdZvIdxt3VYXhus3G3c=
+github.com/desmos-labs/cosmos-sdk v0.47.5-desmos.2 h1:koEBDdrtaSFWfZX/+I29XAxalluytFiWjItYsAODltg=
+github.com/desmos-labs/cosmos-sdk v0.47.5-desmos.2/go.mod h1:A79th9+rj65SLmXGzBMxjq6OaI22pB77BfgP3+R6lyY=
 github.com/desmos-labs/desmos/v5 v5.2.0 h1:G0fxZ89KKtgzShDEomzWy8uWO1aryyHLg/nhGta1xzA=
 github.com/desmos-labs/desmos/v6 v6.3.1 h1:KfF9tUR4wug7p9HrdPeG8d65mi93ppMT0Vo8nnlyBOo=
 github.com/desmos-labs/desmos/v6 v6.3.1/go.mod h1:29/fPMUOLI4XgciEgyyhf0dNu7gK3sU/5Au+MLaPYec=
