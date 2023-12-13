@@ -5,7 +5,7 @@ go 1.20
 require (
 	github.com/cosmos/cosmos-sdk v0.47.5
 	github.com/desmos-labs/caerus v0.0.0-20230825170629-5ee97a5d0b59
-	github.com/desmos-labs/desmos/v6 v6.3.1
+	github.com/desmos-labs/desmos/v6 v6.4.0
 	github.com/gin-contrib/cors v1.5.0
 	github.com/gin-gonic/gin v1.9.1
 	github.com/golangci/golangci-lint v1.55.2
